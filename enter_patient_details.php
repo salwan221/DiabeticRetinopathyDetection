@@ -12,17 +12,17 @@ if(array_key_exists("name",$_POST) && array_key_exists("age",$_POST) && array_ke
 	$query_enter_details="insert into patient_details (name,age,mobile_no,address) values ('".mysqli_escape_string($link,$name)."',".$age.",'".mysqli_escape_string($link,$mobile_no)."','".mysqli_escape_string($link,$address)."')";
 
 	if($result=mysqli_query($link,$query_enter_details)){
-		echo (string)mysqli_insert_id($link);
+		echo "<div class='alert alert-success' role='alert'>Patient details saved successfully. Patient ID : ".(string)mysqli_insert_id($link)."</div>";
 	}else{
 
-		echo "-1";
+		echo "<div class='alert alert-danger' role='alert'>Error saving details. Try again!</div>";
 
 	}
 
 
 }else{
 
-	echo "form data not received";
+	echo "<div class='alert alert-danger' role='alert'>Error saving details. Try again!</div>";
 
 }
 
