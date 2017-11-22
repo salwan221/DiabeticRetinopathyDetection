@@ -1,7 +1,5 @@
 <?php
 
-include ("database_connection_open.php");
-
 if(array_key_exists("patient_id",$_POST)){
 
 	$patient_id=$_POST["patient_id"];
@@ -47,6 +45,5 @@ if(array_key_exists("patient_id",$_POST)){
 
 }
 
-include ("database_connection_close.php");
 
 ?>
