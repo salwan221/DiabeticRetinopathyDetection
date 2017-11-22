@@ -155,10 +155,10 @@
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-
-   <div class="modal fade" id="newscan">
+ <div class="modal fade" id="newscan">
     <div class="modal-dialog" role = "document">
         <div class="modal-content">
+            <!-- Modal Header -->
             <div class="modal-header">
                 <button type="button" class="close" 
                    data-dismiss="modal">
@@ -169,32 +169,54 @@
                     Add New Scan
                 </h4>
             </div>
-
-            <div class = "modal-body">
-            	<div class="form-group">
-                        <label class="control-label">Patient ID</label>
-                        <div>
-                            <input type="text" class="form-control input-lg" id="scan_name" name="scan_name" value="" required>
-                        </div>
-                
-	           </div>
-	        </div>
             
-                <div class = "modal-footer">
-            	<div class="form-group">
+            <!-- Modal Body -->
+             <div class="modal-body">
+              <div id="addScanResponseMsg"></div>
+            <form id="add_scan_form" role="form" method="POST" action="upload_img.php" enctype="multipart/form-data">
+                    <input type="hidden" name="_token" value="" >
+                    <div class="form-group">
+                        <label class="control-label">Patient Id</label>
                         <div>
-                            <button type="submit" id="submit_scan_btn" class="btn btn-primary">
-                                Submit
+                            <input type="text" class="form-control input-lg" id="patient_id" name="patient_id" value="" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+
+                      <div>
+                        
+                        <label class="control-label">Left Image Scan</label>
+                        <input type="file" name="leftImg" id="leftImg" required>
+
+                      </div>
+
+                    </div>
+
+                    <div class="form-group">
+
+                      <div>
+                        
+                        <label class="control-label">Right Image Scan</label>
+                        <input type="file" name="rightImg" id="rightImg" required>
+
+                      </div>
+
+                    </div>
+                   
+                    <div class="form-group">
+                        <div>
+                            <button type="submit" id="process_scan_btn" class="btn btn-primary">
+                                Process
                             </button>
                         </div>
                     </div>
-            	</div>
-
-            </div>	
-            
+                </form>
+            </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
-</div>
+</div><!-- /.modal -->
+
 
 
 <div class="modal fade" id="viewall">
@@ -258,7 +280,33 @@
       $("document").ready(function () {
 
       	$("#register_patient_form").validate({
+
+              rules:
+                  {
+                      name:{
+                          required: true,
+                          minlength: 3,
+                          maxlength: 15
+                      },
+                      age:{
+                          required: true,
+                      },
+                      address:{
+                          required: true,
+                          minlength: 3,
+                          maxlength: 20
+                      },
+                      mobile_no:{
+                          required: true,
+                          minlength: 10,
+                          maxlength: 10
+                      }
+                  },
+
+
               submitHandler: enterPatientDetails
+
+
           });
          
           function enterPatientDetails() {
@@ -269,8 +317,10 @@
                   success: function (output) {
                   	// console.log('print this one : '+output);
                     $("#signupResponseMsg").html(output);
+
                   }
               });
+
               return false;
           }
 
