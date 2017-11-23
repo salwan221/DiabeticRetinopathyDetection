@@ -1,19 +1,20 @@
 <?php
 
-include ("database_connection_open.php");
+include_once ("database_connection_open.php");
 
-$query="insert into scan_details (patient_id,scan_id,left_img_result,right_img_result) values (".$patient_id.",".$scan_id.",'no','no')";
+// $query="insert into scan_details values (".$patient_id.",".$scan_id.",'".mysqli_escape_string($link,$left_res)."','".mysqli_escape_string($link,$right_res)."')";
+// print($query);
 
-if($result=mysqli_query($link,$query)){
+// if($result=mysqli_query($link,$query)){
 
-	// echo "new scan added";
+// 	// echo "new scan added";
 
-}else{
+// }else{
 
-	die("error adding scan");
+// 	die("error adding scan");
 
-}
+// }
 
-include ("database_connection_close.php");
+include_once ("database_connection_close.php");
 
 ?>

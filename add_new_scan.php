@@ -122,7 +122,6 @@ include("upload_img.php");
 
 
 <?php 
-include("insert_scan_details.php");
 
 include_once("database_connection_close.php");
 
