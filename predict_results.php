@@ -62,14 +62,14 @@ $query="insert into scan_details values (".$patient_id.",".$scan_id.",'".mysqli_
 if($result=mysqli_query($link,$query)){
 
 	// echo "new scan added";
+ 	print($returned);
 
 }else{
 
-	die("error adding scan");
+	die("error adding scan ".$query." ".$left_res." ".$right_res);
 
 }
 
- print($returned);
 
  include_once("database_connection_close.php");
 
