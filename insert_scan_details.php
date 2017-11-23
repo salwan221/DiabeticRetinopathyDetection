@@ -6,7 +6,7 @@ $query="insert into scan_details (patient_id,scan_id,left_img_result,right_img_r
 
 if($result=mysqli_query($link,$query)){
 
-	echo "new scan added";
+	// echo "new scan added";
 
 }else{
 

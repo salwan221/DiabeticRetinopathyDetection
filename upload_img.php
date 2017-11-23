@@ -11,16 +11,16 @@ if(array_key_exists("leftImg", $_FILES)){
     // Check if image file is a actual image or fake image
     $check = getimagesize($_FILES["leftImg"]["tmp_name"]);
     if($check !== false) {
-        echo "File is an image - " . $check["mime"] . ".";
+        // echo "File is an image - " . $check["mime"] . ".";
         $uploadOk = 1;
     } else {
-        echo "File is not an image.";
+        // echo "File is not an image.";
         $uploadOk = 0;
     }
 
     // Check if file already existss
     if (file_exists($target_file)) {
-        echo "Sorry, file already exists.";
+        // echo "Sorry, file already exists.";
         $uploadOk = 0;
     }
 
@@ -31,9 +31,9 @@ if(array_key_exists("leftImg", $_FILES)){
     } else {
         if (move_uploaded_file($_FILES["leftImg"]["tmp_name"], $target_file)) {
             $path_left=$target_dir.$target_file_name;
-            echo "The file ". basename( $_FILES["leftImg"]["name"]). " has been uploaded with error code : ".$_FILES["leftImg"]["error"];
+            // echo "The file ". basename( $_FILES["leftImg"]["name"]). " has been uploaded with error code : ".$_FILES["leftImg"]["error"];
         } else {
-            echo "Sorry, there was an error uploading your file ".basename( $_FILES["leftImg"]["name"])." with error code : ".$_FILES["leftImg"]["error"];
+            // echo "Sorry, there was an error uploading your file ".basename( $_FILES["leftImg"]["name"])." with error code : ".$_FILES["leftImg"]["error"];
         }
     }
 
@@ -54,16 +54,16 @@ if(array_key_exists("rightImg", $_FILES)){
     // Check if image file is a actual image or fake image
     $check = getimagesize($_FILES["rightImg"]["tmp_name"]);
     if($check !== false) {
-        echo "File is an image - " . $check["mime"] . ".";
+        // echo "File is an image - " . $check["mime"] . ".";
         $uploadOk = 1;
     } else {
-        echo "File is not an image.";
+        // echo "File is not an image.";
         $uploadOk = 0;
     }
 
     // Check if file already existss
     if (file_exists($target_file)) {
-        echo "Sorry, file already exists.";
+        // echo "Sorry, file already exists.";
         $uploadOk = 0;
     }
 
@@ -74,9 +74,9 @@ if(array_key_exists("rightImg", $_FILES)){
     } else {
         if (move_uploaded_file($_FILES["rightImg"]["tmp_name"], $target_file)) {
             $path_right=$target_dir.$target_file_name;
-            echo "The file ". basename( $_FILES["rightImg"]["name"]). " has been uploaded with error code : ".$_FILES["rightImg"]["error"];
+            // echo "The file ". basename( $_FILES["rightImg"]["name"]). " has been uploaded with error code : ".$_FILES["rightImg"]["error"];
         } else {
-            echo "Sorry, there was an error uploading your file ".basename( $_FILES["rightImg"]["name"])." with error code : ".$_FILES["rightImg"]["error"];
+            // echo "Sorry, there was an error uploading your file ".basename( $_FILES["rightImg"]["name"])." with error code : ".$_FILES["rightImg"]["error"];
         }
     }
 

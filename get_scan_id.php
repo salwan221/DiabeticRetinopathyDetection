@@ -17,7 +17,7 @@ if(array_key_exists("patient_id",$_POST)){
 				$rowcount=mysqli_num_rows($result);
 				$scan_id=$rowcount+1;
 
-				echo $scan_id;
+				// echo $scan_id;
 
 			}else{
 
